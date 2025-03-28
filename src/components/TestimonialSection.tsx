@@ -10,7 +10,7 @@ const TestimonialSection = () => {
       role: 'Computer Science Student',
       university: 'MIT',
       image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-      quote: 'The AI Cold Email Generator helped me secure an internship at a top tech company. The personalized emails really made a difference in getting responses!'
+      quote: "The AI Cold Email Generator helped me secure an internship at a top tech company. The personalized emails really made a difference in getting responses!"
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const TestimonialSection = () => {
       role: 'Business Administration Student',
       university: 'Stanford University',
       image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-      quote: 'The ATS-friendly resume generator completely transformed my job application process. I've received callbacks from 80% of the positions I've applied to!'
+      quote: "The ATS-friendly resume generator completely transformed my job application process. I've received callbacks from 80% of the positions I've applied to!"
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ const TestimonialSection = () => {
       role: 'Engineering Graduate',
       university: 'UC Berkeley',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
-      quote: 'Practicing with the AI Interview Questions Generator gave me the confidence I needed for my job interviews. The industry-specific questions were spot on!'
+      quote: "Practicing with the AI Interview Questions Generator gave me the confidence I needed for my job interviews. The industry-specific questions were spot on!"
     }
   ];
 
