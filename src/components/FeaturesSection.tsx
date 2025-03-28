@@ -32,12 +32,12 @@ const FeaturesSection = () => {
     {
       icon: <CheckCircle2 className="w-8 h-8 text-emerald-500" />,
       title: 'ATS Optimization',
-      description: 'Ensure your resume passes through Applicant Tracking Systems with ease.'
+      description: 'Ensure your resume passes through Applicant Tracking Systems with our advanced scoring algorithm.'
     },
     {
       icon: <Clock className="w-8 h-8 text-emerald-500" />,
-      title: 'Quick Generation',
-      description: 'Get high-quality content in seconds, saving you hours of work.'
+      title: 'Real-Time Feedback',
+      description: 'Get instant feedback and improvement suggestions for all your career documents.'
     },
     {
       icon: <UserPlus className="w-8 h-8 text-emerald-500" />,

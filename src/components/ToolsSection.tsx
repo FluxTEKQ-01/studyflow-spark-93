@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
@@ -77,7 +78,9 @@ const ToolsSection = () => {
               </p>
               
               <div className="flex justify-between items-center mt-auto">
-                {tool.credits > 0 ? (
+                {tool.id === 'resume-scorer' ? (
+                  <div></div> // Empty div for the ATS Resume Scorer to remove the free button
+                ) : tool.credits > 0 ? (
                   <div className="credit-badge">
                     {tool.credits} credits
                   </div>
