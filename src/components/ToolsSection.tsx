@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Mail, FileText, MessageSquare, ArrowRight } from 'lucide-react';
+import { Mail, FileText, MessageSquare, ArrowRight, FileCheck } from 'lucide-react';
 
 const ToolsSection = () => {
   const tools = [
@@ -26,13 +26,21 @@ const ToolsSection = () => {
       badge: 'Premium'
     },
     {
+      id: 'resume-scorer',
+      icon: <FileCheck className="w-8 h-8 text-emerald-500" />,
+      title: 'ATS Resume Scorer',
+      description: 'Upload your resume and get instant feedback with an ATS compatibility score, keyword analysis, and improvement suggestions.',
+      credits: 15,
+      path: '/tools/resume-scorer',
+      badge: 'New'
+    },
+    {
       id: 'interview-questions',
       icon: <MessageSquare className="w-8 h-8 text-emerald-500" />,
       title: 'AI Interview Questions Generator',
       description: 'Practice with role-specific interview questions customized to your experience level and industry.',
       credits: 15,
-      path: '/tools/interview-questions',
-      badge: 'New'
+      path: '/tools/interview-questions'
     }
   ];
 
@@ -49,7 +57,7 @@ const ToolsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tools.map((tool, index) => (
+          {tools.slice(0, 3).map((tool, index) => (
             <div 
               key={tool.id}
               className="tool-card"

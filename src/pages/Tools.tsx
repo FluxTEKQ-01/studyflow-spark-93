@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Mail, FileText, MessageSquare, ArrowRight, ArrowLeft } from 'lucide-react';
+import { Mail, FileText, MessageSquare, ArrowRight, ArrowLeft, FileCheck } from 'lucide-react';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -41,13 +41,21 @@ const Tools = () => {
       badge: 'Premium'
     },
     {
+      id: 'resume-scorer',
+      icon: <FileCheck className="w-8 h-8 text-emerald-500" />,
+      title: 'ATS Resume Scorer',
+      description: 'Upload your resume and get instant feedback with an ATS compatibility score, keyword analysis, and improvement suggestions.',
+      credits: 15,
+      path: '/tools/resume-scorer',
+      badge: 'New'
+    },
+    {
       id: 'interview-questions',
       icon: <MessageSquare className="w-8 h-8 text-emerald-500" />,
       title: 'AI Interview Questions Generator',
       description: 'Practice with role-specific interview questions customized to your experience level and industry.',
       credits: 15,
-      path: '/tools/interview-questions',
-      badge: 'New'
+      path: '/tools/interview-questions'
     }
   ];
 
@@ -60,7 +68,9 @@ const Tools = () => {
             <Breadcrumb>
               <BreadcrumbList>
                 <BreadcrumbItem>
-                  <BreadcrumbLink as={Link} to="/">Home</BreadcrumbLink>
+                  <BreadcrumbLink href="/">
+                    <Link to="/">Home</Link>
+                  </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
