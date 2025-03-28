@@ -44,10 +44,10 @@ const Tools = () => {
       id: 'resume-scorer',
       icon: <FileCheck className="w-8 h-8 text-emerald-500" />,
       title: 'ATS Resume Scorer',
-      description: 'Upload your resume and get instant feedback with an ATS compatibility score, keyword analysis, and improvement suggestions.',
-      credits: 15,
+      description: 'Upload your resume and get instant feedback with an ATS compatibility score, keyword analysis, and improvement suggestions in real-time.',
+      credits: 0,
       path: '/tools/resume-scorer',
-      badge: 'New'
+      badge: 'Free'
     },
     {
       id: 'interview-questions',
@@ -97,7 +97,7 @@ const Tools = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {tool.badge && (
-                  <Badge variant="secondary" className="absolute top-4 right-4 bg-emerald-500/20 text-emerald-400 border-emerald-500/30">
+                  <Badge variant="secondary" className={`absolute top-4 right-4 ${tool.badge === 'Free' ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'}`}>
                     {tool.badge}
                   </Badge>
                 )}
@@ -111,9 +111,15 @@ const Tools = () => {
                 </p>
                 
                 <div className="flex justify-between items-center mt-auto">
-                  <div className="credit-badge">
-                    {tool.credits} credits
-                  </div>
+                  {tool.credits > 0 ? (
+                    <div className="credit-badge">
+                      {tool.credits} credits
+                    </div>
+                  ) : (
+                    <div className="credit-badge bg-blue-500/20 text-blue-400 border-blue-500/30">
+                      Free
+                    </div>
+                  )}
                   
                   <Link to={tool.path}>
                     <Button variant="ghost" size="sm" className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10">
