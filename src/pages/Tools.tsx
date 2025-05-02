@@ -6,7 +6,7 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Mail, FileText, MessageSquare, ArrowRight, ArrowLeft, FileCheck } from 'lucide-react';
+import { Mail, FileText, MessageSquare, ArrowRight, ArrowLeft, FileCheck, Edit } from 'lucide-react';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -57,6 +57,15 @@ const Tools = () => {
       description: 'Practice with role-specific interview questions customized to your experience level and industry.',
       credits: 15,
       path: '/tools/interview-questions'
+    },
+    {
+      id: 'sop-letter-generator',
+      icon: <Edit className="w-8 h-8 text-emerald-500" />,
+      title: 'SOP & Recommendation Letter Generator',
+      description: 'Craft compelling Statements of Purpose and Letters of Recommendation tailored to your achievements, goals, and target institutions.',
+      credits: 20,
+      path: '/tools/sop-letter-generator',
+      badge: 'New'
     }
   ];
 
@@ -99,7 +108,13 @@ const Tools = () => {
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {tool.badge && (
-                  <Badge variant="secondary" className={`absolute top-4 right-4 ${tool.badge === 'Free' ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'}`}>
+                  <Badge variant="secondary" className={`absolute top-4 right-4 ${
+                    tool.badge === 'Free' 
+                      ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' 
+                      : tool.badge === 'New' 
+                        ? 'bg-purple-500/20 text-purple-400 border-purple-500/30'
+                        : 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                  }`}>
                     {tool.badge}
                   </Badge>
                 )}

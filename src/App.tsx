@@ -19,7 +19,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tools" element={<Tools />} />
-          {/* Additional routes would be added here */}
+          {/* Tool routes would be added here */}
+          <Route path="/tools/email-generator" element={<NotFound />} />
+          <Route path="/tools/resume-generator" element={<NotFound />} />
+          <Route path="/tools/resume-scorer" element={<NotFound />} />
+          <Route path="/tools/interview-questions" element={<NotFound />} />
+          <Route path="/tools/sop-letter-generator" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
