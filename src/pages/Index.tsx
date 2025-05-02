@@ -8,6 +8,7 @@ import TestimonialSection from '../components/TestimonialSection';
 import CreditSection from '../components/CreditSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const Index = () => {
   // Scroll to top on page load
@@ -16,7 +17,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative">
+      <AnimatedBackground />
       <Navbar />
       <main className="flex-grow">
         <Hero />

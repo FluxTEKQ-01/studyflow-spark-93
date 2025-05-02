@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import AnimatedBackground from '../components/AnimatedBackground';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -60,9 +61,10 @@ const Tools = () => {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative">
+      <AnimatedBackground />
       <Navbar />
-      <main className="flex-grow pt-24 pb-20 bg-background">
+      <main className="flex-grow pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="mb-8">
             <Breadcrumb>

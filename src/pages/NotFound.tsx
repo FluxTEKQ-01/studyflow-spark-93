@@ -5,14 +5,16 @@ import { Button } from '@/components/ui/button';
 import { Home } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const NotFound = () => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen relative">
+      <AnimatedBackground />
       <Navbar />
-      <main className="flex-grow flex items-center justify-center py-20 bg-hero-pattern bg-cover bg-center">
+      <main className="flex-grow flex items-center justify-center py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-lg mx-auto glass-card rounded-xl p-12 text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-4 text-gradient">404</h1>
