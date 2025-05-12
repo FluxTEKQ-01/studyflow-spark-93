@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Mail, FileText, MessageSquare, ArrowRight, FileCheck, Edit } from 'lucide-react';
+import { Mail, FileText, MessageSquare, ArrowRight, FileCheck, Edit, BookText } from 'lucide-react';
 
 const ToolsSection = () => {
   const tools = [
@@ -22,6 +21,14 @@ const ToolsSection = () => {
       description: 'Create resumes optimized for Applicant Tracking Systems with keyword optimization and real-time scoring.',
       path: '/tools/resume-generator',
       badge: 'Premium'
+    },
+    {
+      id: 'project-documentation',
+      icon: <BookText className="w-8 h-8 text-emerald-500" />,
+      title: 'Project Documentation Generator',
+      description: 'Generate comprehensive project documentation from your code, including README files, API documentation, and user guides.',
+      path: '/tools/project-documentation',
+      badge: 'New'
     },
     {
       id: 'resume-scorer',

@@ -6,7 +6,7 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Mail, FileText, MessageSquare, ArrowRight, ArrowLeft, FileCheck, Edit } from 'lucide-react';
+import { Mail, FileText, MessageSquare, ArrowRight, ArrowLeft, FileCheck, Edit, BookText } from 'lucide-react';
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -45,6 +45,16 @@ const Tools = () => {
       path: '/tools/resume-generator',
       badge: 'Premium',
       image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop&brightness=1.3'
+    },
+    {
+      id: 'project-documentation',
+      icon: <BookText className="w-8 h-8 text-emerald-500" />,
+      title: 'Project Documentation Generator',
+      description: 'Generate comprehensive project documentation from your code, including README files, API documentation, and user guides.',
+      credits: 15,
+      path: '/tools/project-documentation',
+      badge: 'New',
+      image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?q=80&w=800&auto=format&fit=crop&brightness=1.3'
     },
     {
       id: 'resume-scorer',

@@ -30,6 +30,7 @@ const App = () => (
           {/* Tool routes would be added here */}
           <Route path="/tools/email-generator" element={<NotFound />} />
           <Route path="/tools/resume-generator" element={<NotFound />} />
+          <Route path="/tools/project-documentation" element={<NotFound />} />
           <Route path="/tools/resume-scorer" element={<NotFound />} />
           <Route path="/tools/interview-questions" element={<NotFound />} />
           <Route path="/tools/sop-letter-generator" element={<NotFound />} />
