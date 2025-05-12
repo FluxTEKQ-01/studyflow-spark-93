@@ -34,7 +34,7 @@ const Tools = () => {
       credits: 10,
       path: '/tools/email-generator',
       badge: 'Most Popular',
-      image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=800&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=800&auto=format&fit=crop&fm=jpg&brightness=1.2'
     },
     {
       id: 'resume-generator',
@@ -44,7 +44,7 @@ const Tools = () => {
       credits: 25,
       path: '/tools/resume-generator',
       badge: 'Premium',
-      image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop&brightness=1.3'
     },
     {
       id: 'resume-scorer',
@@ -54,7 +54,7 @@ const Tools = () => {
       credits: 0,
       path: '/tools/resume-scorer',
       badge: 'Free',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop&brightness=1.3'
     },
     {
       id: 'interview-questions',
@@ -63,7 +63,8 @@ const Tools = () => {
       description: 'Practice with role-specific interview questions customized to your experience level and industry.',
       credits: 15,
       path: '/tools/interview-questions',
-      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop'
+      // New image for the interview questions generator
+      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop&brightness=1.3'
     },
     {
       id: 'sop-letter-generator',
@@ -73,7 +74,7 @@ const Tools = () => {
       credits: 20,
       path: '/tools/sop-letter-generator',
       badge: 'New',
-      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop'
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop&brightness=1.3'
     }
   ];
 
@@ -129,9 +130,9 @@ const Tools = () => {
                   </Badge>
                 )}
                 
-                {/* Motion image that appears on hover */}
+                {/* Motion image with increased opacity for brightness */}
                 <div 
-                  className={`absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500 opacity-0 ${hoveredTool === tool.id ? 'opacity-10 scale-110' : ''}`}
+                  className={`absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500 opacity-0 ${hoveredTool === tool.id ? 'opacity-20 scale-110' : ''}`}
                   style={{ 
                     backgroundImage: `url(${tool.image})`,
                     transform: hoveredTool === tool.id ? 'scale(1.05)' : 'scale(1)'
