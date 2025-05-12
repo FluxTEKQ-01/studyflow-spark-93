@@ -29,10 +29,6 @@ const CTASection = () => {
               </Button>
             </Link>
           </div>
-          
-          <div className="mt-8 text-white/60 text-sm">
-            No credit card required to start. Get 30 free credits upon verification.
-          </div>
         </div>
       </div>
     </section>

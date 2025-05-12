@@ -12,7 +12,6 @@ const ToolsSection = () => {
       icon: <Mail className="w-8 h-8 text-emerald-500" />,
       title: 'AI Cold Email Generator',
       description: 'Craft personalized professional emails that get responses with industry-specific templates and tone customization.',
-      credits: 10,
       path: '/tools/email-generator',
       badge: 'Most Popular'
     },
@@ -21,7 +20,6 @@ const ToolsSection = () => {
       icon: <FileText className="w-8 h-8 text-emerald-500" />,
       title: 'ATS-Friendly Resume Generator',
       description: 'Create resumes optimized for Applicant Tracking Systems with keyword optimization and real-time scoring.',
-      credits: 25,
       path: '/tools/resume-generator',
       badge: 'Premium'
     },
@@ -30,7 +28,6 @@ const ToolsSection = () => {
       icon: <FileCheck className="w-8 h-8 text-emerald-500" />,
       title: 'ATS Resume Scorer',
       description: 'Upload your resume and get instant feedback with an ATS compatibility score, keyword analysis, and improvement suggestions in real-time.',
-      credits: 0,
       path: '/tools/resume-scorer',
       badge: 'Free'
     },
@@ -39,7 +36,6 @@ const ToolsSection = () => {
       icon: <MessageSquare className="w-8 h-8 text-emerald-500" />,
       title: 'AI Interview Questions Generator',
       description: 'Practice with role-specific interview questions customized to your experience level and industry.',
-      credits: 15,
       path: '/tools/interview-questions'
     },
     {
@@ -47,7 +43,6 @@ const ToolsSection = () => {
       icon: <Edit className="w-8 h-8 text-emerald-500" />,
       title: 'SOP & Recommendation Letter Generator',
       description: 'Craft compelling Statements of Purpose and Letters of Recommendation tailored to your achievements, goals, and target institutions.',
-      credits: 20,
       path: '/tools/sop-letter-generator',
       badge: 'New'
     }
@@ -87,17 +82,7 @@ const ToolsSection = () => {
               </p>
               
               <div className="flex justify-between items-center mt-auto">
-                {tool.id === 'resume-scorer' ? (
-                  <div></div> // Empty div for the ATS Resume Scorer to remove the free button
-                ) : tool.credits > 0 ? (
-                  <div className="credit-badge">
-                    {tool.credits} credits
-                  </div>
-                ) : (
-                  <div className="credit-badge bg-blue-500/20 text-blue-400 border-blue-500/30">
-                    Free
-                  </div>
-                )}
+                <div></div>
                 
                 <Link to={tool.path}>
                   <Button variant="ghost" size="sm" className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10">

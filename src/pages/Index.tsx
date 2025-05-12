@@ -5,7 +5,6 @@ import Hero from '../components/Hero';
 import ToolsSection from '../components/ToolsSection';
 import FeaturesSection from '../components/FeaturesSection';
 import TestimonialSection from '../components/TestimonialSection';
-import CreditSection from '../components/CreditSection';
 import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
@@ -25,7 +24,6 @@ const Index = () => {
         <ToolsSection />
         <FeaturesSection />
         <TestimonialSection />
-        <CreditSection />
         <CTASection />
       </main>
       <Footer />

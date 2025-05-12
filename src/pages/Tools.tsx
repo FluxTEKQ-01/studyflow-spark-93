@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
@@ -17,6 +17,9 @@ import {
 } from "@/components/ui/breadcrumb";
 
 const Tools = () => {
+  // State to track hovered tool
+  const [hoveredTool, setHoveredTool] = useState<string | null>(null);
+  
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +33,8 @@ const Tools = () => {
       description: 'Craft personalized professional emails that get responses with industry-specific templates and tone customization.',
       credits: 10,
       path: '/tools/email-generator',
-      badge: 'Most Popular'
+      badge: 'Most Popular',
+      image: 'https://images.unsplash.com/photo-1596526131083-e8c633c948d2?q=80&w=800&auto=format&fit=crop'
     },
     {
       id: 'resume-generator',
@@ -39,7 +43,8 @@ const Tools = () => {
       description: 'Create resumes optimized for Applicant Tracking Systems with keyword optimization and real-time scoring.',
       credits: 25,
       path: '/tools/resume-generator',
-      badge: 'Premium'
+      badge: 'Premium',
+      image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop'
     },
     {
       id: 'resume-scorer',
@@ -48,7 +53,8 @@ const Tools = () => {
       description: 'Upload your resume and get instant feedback with an ATS compatibility score, keyword analysis, and improvement suggestions in real-time.',
       credits: 0,
       path: '/tools/resume-scorer',
-      badge: 'Free'
+      badge: 'Free',
+      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop'
     },
     {
       id: 'interview-questions',
@@ -56,7 +62,8 @@ const Tools = () => {
       title: 'AI Interview Questions Generator',
       description: 'Practice with role-specific interview questions customized to your experience level and industry.',
       credits: 15,
-      path: '/tools/interview-questions'
+      path: '/tools/interview-questions',
+      image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop'
     },
     {
       id: 'sop-letter-generator',
@@ -65,7 +72,8 @@ const Tools = () => {
       description: 'Craft compelling Statements of Purpose and Letters of Recommendation tailored to your achievements, goals, and target institutions.',
       credits: 20,
       path: '/tools/sop-letter-generator',
-      badge: 'New'
+      badge: 'New',
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop'
     }
   ];
 
@@ -104,11 +112,13 @@ const Tools = () => {
             {tools.map((tool, index) => (
               <div 
                 key={tool.id}
-                className="tool-card"
+                className="tool-card overflow-hidden"
                 style={{ animationDelay: `${index * 0.2}s` }}
+                onMouseEnter={() => setHoveredTool(tool.id)}
+                onMouseLeave={() => setHoveredTool(null)}
               >
                 {tool.badge && (
-                  <Badge variant="secondary" className={`absolute top-4 right-4 ${
+                  <Badge variant="secondary" className={`absolute top-4 right-4 z-10 ${
                     tool.badge === 'Free' 
                       ? 'bg-blue-500/20 text-blue-400 border-blue-500/30' 
                       : tool.badge === 'New' 
@@ -119,15 +129,24 @@ const Tools = () => {
                   </Badge>
                 )}
                 
-                <div className="mb-6">{tool.icon}</div>
+                {/* Motion image that appears on hover */}
+                <div 
+                  className={`absolute inset-0 w-full h-full bg-cover bg-center transition-all duration-500 opacity-0 ${hoveredTool === tool.id ? 'opacity-10 scale-110' : ''}`}
+                  style={{ 
+                    backgroundImage: `url(${tool.image})`,
+                    transform: hoveredTool === tool.id ? 'scale(1.05)' : 'scale(1)'
+                  }}
+                />
                 
-                <h3 className="text-xl font-semibold mb-3">{tool.title}</h3>
+                <div className="mb-6 relative z-10">{tool.icon}</div>
                 
-                <p className="text-white/70 mb-6 text-sm leading-relaxed">
+                <h3 className="text-xl font-semibold mb-3 relative z-10">{tool.title}</h3>
+                
+                <p className="text-white/70 mb-6 text-sm leading-relaxed relative z-10">
                   {tool.description}
                 </p>
                 
-                <div className="flex justify-between items-center mt-auto">
+                <div className="flex justify-between items-center mt-auto relative z-10">
                   {tool.id === 'resume-scorer' ? (
                     <div></div> // Empty div for the ATS Resume Scorer to remove the free button
                   ) : tool.credits > 0 ? (
