@@ -9,6 +9,7 @@ import Tools from "./pages/Tools";
 import About from "./pages/About";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import Pricing from "./pages/Pricing";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/pricing" element={<Pricing />} />
           {/* Tool routes would be added here */}
           <Route path="/tools/email-generator" element={<NotFound />} />
           <Route path="/tools/resume-generator" element={<NotFound />} />
