@@ -15,6 +15,7 @@ const Hero = () => {
           </div>
           
           <div className="mb-12 w-full max-w-3xl mx-auto h-[400px]">
+            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.93/build/spline-viewer.js"></script>
             <spline-viewer url="https://prod.spline.design/UN8MDlXflCngE8hg/scene.splinecode"></spline-viewer>
           </div>
           
