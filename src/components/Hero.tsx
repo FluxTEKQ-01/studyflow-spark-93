@@ -10,6 +10,8 @@ declare global {
     interface IntrinsicElements {
       'spline-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
         url: string;
+        background-color?: string;
+        loading-indicator-color?: string;
       };
     }
   }
@@ -26,7 +28,12 @@ const Hero = () => {
           </div>
           
           <div className="mb-12 w-full max-w-3xl mx-auto h-[400px]">
-            <spline-viewer url="https://prod.spline.design/DCrJEnM5TT94f63J/scene.splinecode"></spline-viewer>
+            <spline-viewer 
+              url="https://prod.spline.design/DCrJEnM5TT94f63J/scene.splinecode"
+              background-color="transparent"
+              loading-indicator-color="#10b981"
+              className="w-full h-full"
+            ></spline-viewer>
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>
