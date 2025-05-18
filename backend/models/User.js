@@ -25,6 +25,17 @@ const UserSchema = new mongoose.Schema({
     enum: ['free', 'basic', 'premium', 'enterprise'],
     default: 'free'
   },
+  recentTools: [{
+    toolId: String,
+    usedAt: {
+      type: Date,
+      default: Date.now
+    }
+  }],
+  isNewUser: {
+    type: Boolean,
+    default: true
+  },
   createdAt: {
     type: Date,
     default: Date.now

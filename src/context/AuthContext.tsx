@@ -91,7 +91,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const response = await axios.get(`${API_URL}/auth/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setUserProfile(response.data.user);
+      setUserProfile({...response.data.user, isNewUser: response.data.isNewUser});
     } catch (error) {
       console.error('Error refreshing user profile:', error);
     }
@@ -104,12 +104,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const token = await userCredential.user.getIdToken();
       
       // Register user in our backend
-      await axios.post(`${API_URL}/auth/register`, {
+      const response = await axios.post(`${API_URL}/auth/register`, {
         token,
         displayName
       });
       
-      await refreshUserProfile();
+      // Set isNewUser flag
+      setUserProfile({...response.data.user, isNewUser: response.data.isNewUser});
     } catch (error) {
       console.error('Error during sign up:', error);
       throw error;
@@ -134,12 +135,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const token = await result.user.getIdToken();
       
       // Register user in our backend
-      await axios.post(`${API_URL}/auth/register`, {
+      const response = await axios.post(`${API_URL}/auth/register`, {
         token,
         displayName: result.user.displayName
       });
       
-      await refreshUserProfile();
+      // Set isNewUser flag
+      setUserProfile({...response.data.user, isNewUser: response.data.isNewUser});
     } catch (error) {
       console.error('Error during Google sign in:', error);
       throw error;

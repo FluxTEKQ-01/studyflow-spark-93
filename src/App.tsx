@@ -18,6 +18,13 @@ import Register from "./pages/auth/Register";
 import Dashboard from "./pages/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
+// Import tools pages
+import ResumeScorer from "./pages/tools/ResumeScorer";
+import InterviewQuestions from "./pages/tools/InterviewQuestions";
+import ProjectDocumentation from "./pages/tools/ProjectDocumentation";
+import SOPGenerator from "./pages/tools/SOPGenerator";
+import ResumeGenerator from "./pages/tools/ResumeGenerator";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -58,11 +65,46 @@ const App = () => (
                 </ProtectedRoute>
               } 
             />
-            <Route path="/tools/resume-generator" element={<NotFound />} />
-            <Route path="/tools/project-documentation" element={<NotFound />} />
-            <Route path="/tools/resume-scorer" element={<NotFound />} />
-            <Route path="/tools/interview-questions" element={<NotFound />} />
-            <Route path="/tools/sop-letter-generator" element={<NotFound />} />
+            <Route 
+              path="/tools/resume-generator" 
+              element={
+                <ProtectedRoute>
+                  <ResumeGenerator />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/tools/project-documentation" 
+              element={
+                <ProtectedRoute>
+                  <ProjectDocumentation />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/tools/resume-scorer" 
+              element={
+                <ProtectedRoute>
+                  <ResumeScorer />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/tools/interview-questions" 
+              element={
+                <ProtectedRoute>
+                  <InterviewQuestions />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/tools/sop-letter-generator" 
+              element={
+                <ProtectedRoute>
+                  <SOPGenerator />
+                </ProtectedRoute>
+              } 
+            />
             
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
     let user = await User.findOne({ firebaseUid: uid });
     
     if (user) {
-      return res.status(200).json({ user, message: 'User already exists' });
+      return res.status(200).json({ user, message: 'User already exists', isNewUser: false });
     }
     
     // Create new user in our database
@@ -26,11 +26,12 @@ router.post('/register', async (req, res) => {
       displayName: displayName || 'New User',
       email,
       credits: 10, // Give 10 free credits to new users
+      isNewUser: true
     });
     
     await user.save();
     
-    res.status(201).json({ user, message: 'User registered successfully' });
+    res.status(201).json({ user, message: 'User registered successfully', isNewUser: true });
   } catch (error) {
     console.error('Registration error:', error);
     res.status(500).json({ message: 'Server error during registration' });
@@ -56,8 +57,14 @@ router.get('/me', async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
+
+    // If this is the first login for a new user, update isNewUser flag
+    if (user.isNewUser) {
+      user.isNewUser = false;
+      await user.save();
+    }
     
-    res.status(200).json({ user });
+    res.status(200).json({ user, isNewUser: user.isNewUser });
   } catch (error) {
     console.error('Get user error:', error);
     res.status(401).json({ message: 'Invalid or expired token' });

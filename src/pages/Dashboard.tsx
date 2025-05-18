@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AnimatedBackground from '../components/AnimatedBackground';
+import Celebration from '../components/Celebration';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
@@ -16,6 +17,7 @@ const Dashboard = () => {
     <div className="flex flex-col min-h-screen relative">
       <AnimatedBackground />
       <Navbar />
+      <Celebration />
       
       <main className="flex-grow pt-24 pb-20">
         <div className="container mx-auto px-4">
@@ -66,7 +68,43 @@ const Dashboard = () => {
               </div>
             </Link>
             
-            {/* More tool cards will be added here */}
+            <Link to="/tools/resume-scorer" className="tool-card">
+              <div className="mb-6">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">ATS Resume Scorer</h3>
+              <p className="text-white/70 mb-4 text-sm">
+                Get instant feedback on your resume with AI analysis.
+              </p>
+              <div className="mt-auto">
+                <Button variant="ghost" size="sm" className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10">
+                  Launch Tool
+                </Button>
+              </div>
+            </Link>
+            
+            <Link to="/tools/interview-questions" className="tool-card">
+              <div className="mb-6">
+                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 className="text-xl font-semibold mb-2">AI Interview Questions</h3>
+              <p className="text-white/70 mb-4 text-sm">
+                Practice with role-specific interview questions.
+              </p>
+              <div className="mt-auto">
+                <Button variant="ghost" size="sm" className="text-emerald-400 hover:text-emerald-300 hover:bg-emerald-500/10">
+                  Launch Tool
+                </Button>
+              </div>
+            </Link>
           </div>
         </div>
       </main>
