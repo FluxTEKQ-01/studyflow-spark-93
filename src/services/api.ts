@@ -27,6 +27,9 @@ export const authAPI = {
   },
   getCurrentUser: async () => {
     return await api.get('/auth/me');
+  },
+  markNotNew: async () => {
+    return await api.post('/auth/mark-not-new');
   }
 };
 
@@ -59,6 +62,6 @@ export const emailAPI = {
   }
 };
 
-// More tool APIs will be added here
+// More tool APIs will be added here as needed
 
 export default api;

@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-// Initialize Firebase Admin SDK
+// Initialize Firebase Admin SDK with environment variables
 const serviceAccount = {
   "type": process.env.FIREBASE_TYPE,
   "project_id": process.env.FIREBASE_PROJECT_ID,
@@ -18,6 +18,7 @@ const serviceAccount = {
   "client_x509_cert_url": process.env.FIREBASE_CLIENT_CERT_URL
 };
 
+// Initialize the app with a service account
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });

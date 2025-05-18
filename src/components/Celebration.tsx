@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { PartyPopper, Sparkles, Gift } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
-import { Toast } from '@/components/ui/toast';
-import { ToastAction } from '@/components/ui/toast';
 import { toast } from '@/hooks/use-toast';
+import axios from 'axios';
 import './Celebration.css';
 
 const Confetti = () => {
@@ -62,7 +61,7 @@ const Confetti = () => {
 };
 
 const Celebration = () => {
-  const { userProfile } = useAuth();
+  const { userProfile, getIdToken, refreshUserProfile } = useAuth();
   const [showCelebration, setShowCelebration] = useState(false);
   
   useEffect(() => {
@@ -75,12 +74,32 @@ const Celebration = () => {
         title: "🎉 Welcome to StudyFlow Spark!",
         description: "Congratulations on joining! You've received 10 free credits to start exploring our AI tools.",
         action: (
-          <ToastAction altText="Explore Tools">
-            <a href="/tools">Explore Tools</a>
-          </ToastAction>
+          <a href="/tools" className="bg-emerald-500 text-white px-4 py-1 rounded text-xs hover:bg-emerald-600">
+            Explore Tools
+          </a>
         ),
         duration: 10000,
       });
+      
+      // Mark user as not new after celebration is shown
+      const markUserNotNew = async () => {
+        try {
+          const token = await getIdToken();
+          if (token) {
+            await axios.post('http://localhost:5000/api/auth/mark-not-new', {}, {
+              headers: { Authorization: `Bearer ${token}` }
+            });
+            // Refresh user profile after marking as not new
+            setTimeout(() => {
+              refreshUserProfile();
+            }, 15000); // After celebration ends
+          }
+        } catch (error) {
+          console.error('Error marking user as not new:', error);
+        }
+      };
+      
+      markUserNotNew();
       
       // Clean up celebration effect after 15 seconds
       const timer = setTimeout(() => {
@@ -89,7 +108,7 @@ const Celebration = () => {
       
       return () => clearTimeout(timer);
     }
-  }, [userProfile]);
+  }, [userProfile, getIdToken, refreshUserProfile]);
   
   if (!showCelebration) return null;
   

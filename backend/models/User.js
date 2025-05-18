@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
   },
   credits: {
     type: Number,
-    default: 0
+    default: 10
   },
   subscription: {
     type: String,
@@ -37,6 +37,10 @@ const UserSchema = new mongoose.Schema({
     default: true
   },
   createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  lastLogin: {
     type: Date,
     default: Date.now
   }

@@ -15,12 +15,12 @@ import axios from 'axios';
 
 // Firebase config
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY", // Replace with actual Firebase config
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyD5OViCdBZYrLq2axu-2s_ryKos4YfJuE8",
+  authDomain: "studyflow-spark.firebaseapp.com",
+  projectId: "studyflow-spark",
+  storageBucket: "studyflow-spark.appspot.com",
+  messagingSenderId: "395281622509",
+  appId: "1:395281622509:web:76f3425eb34a3a939dfc4b"
 };
 
 // Initialize Firebase
